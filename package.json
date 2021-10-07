@@ -1,0 +1,28 @@
+{
+  "name": "parking-system",
+  "version": "1.0.0",
+  "description": "Design a parking service system. The service offers parking in addition to refueling to vehicles that require it, there are two employees who work on comission and get paid different rates. The system is responsible for assigning the workload equally between the two employees in a way that favours profit.",
+  "main": "index.js",
+  "author": "Jeremy Giraudet",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src/**/*.ts",
+    "lint-fix": "eslint --fix src/**/*.ts",
+    "format": "prettier --write 'src/**/*.ts'",
+    "prepare": "husky install",
+    "precommit": "npm run lint-fix && npm run format",
+    "prepush": "npm run lint"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.2",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.3"
+  }
+}
