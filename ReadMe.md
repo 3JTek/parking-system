@@ -1,24 +1,23 @@
-Design a parking service system. The service offers parking in addition to refueling to vehicles that require it, there are two employees who work on comission and get paid different rates. The system is responsible for assigning the workload equally between the two employees in a way that favours profit.
+# Parking assignment system
+
+## Requirements
+
+Design a parking service system. The service offers parking in addition to refueling to vehicles that require it, there are two employees who work on commission and get paid different rates. The system is responsible for assigning the workload equally between the two employees in a way that favours profit.
 
 - Small cars pay a flat rate of $25 for parking and large vehicles pay $35.
 - Every car with 10% or less fuel, will be refueled to maximum capacity and charged the fuel amount in addition to the parking fee.
 - Employee A gets paid 11% commission over the final amount paid, while employee B gets paid 15%.
 - Fuel has a fixed rate of $1.75/litre.
 
-Requirements:
+See input and output at the end of the file
 
-Your application should print a JSON-formatted array of assignments in the following format:
+# Room for improvements
 
-```
-{
-    "licencePlate": string,
-    "employee": string,
-    "fuelAdded": float, // Amount of fuel added in litres
-    "price": float
-}
-```
+- Write tests for validation modules
+- Make the application handling dynamic employees input (what happens if suddenly we have 3 employees)
+- Fixing eslint warnings
 
-Input for your application:
+  Input for your application:
 
 ```
 [{
@@ -92,4 +91,15 @@ Input for your application:
         "level": 0.01
     }
 }]
+```
+
+Output: JSON-formatted array of assignments in the following format:
+
+```
+{
+    "licencePlate": string,
+    "employee": string,
+    "fuelAdded": float, // Amount of fuel added in litres
+    "price": float
+}
 ```

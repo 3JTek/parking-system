@@ -1,21 +1,47 @@
 //Inputs
-import jobSummary from "./inputJobs.json"
-import employees from "./inputEmployees.json"
+import parkingListing from "./test-data/inputParkingListing.json"
+import employees from "./test-data/inputEmployees.json"
 
-//Scenario
-import runScenario1 from "./scenario1"
-import runScenario2 from "./scenario2"
+//Validations
+import validateParkingListingInput from "./modules/validateParkingListingInput"
+import validateEmployeeInput from "./modules/validateEmployeeInput"
 
-const scenario: number = 2
+//Modules
+import generateJobs from "./modules/generateJobs"
+import assignJobToEmployee from "./modules/assignJobToEmployee"
 
-let result
+try {
+  //Input validations
+  validateEmployeeInput(employees)
+  validateParkingListingInput(parkingListing)
 
-if (scenario === 1) {
-  result = runScenario1(jobSummary, employees)
-} else if (scenario === 2) {
-  result = runScenario2(jobSummary, employees)
-} else {
-  result = "Please select a existing scenario"
+  //Assignment process
+  const jobs: IAssignment[] = generateJobs(parkingListing)
+  const assignments: IAssignment[] = assignJobToEmployee(jobs, employees)
+
+  //Result
+  console.log(assignments)
+} catch (err) {
+  console.error("An error occurred during the process err => ", err)
 }
 
-console.log(result)
+export interface IParkingItem {
+  licencePlate: string
+  size: string
+  fuel: {
+    capacity: number
+    level: number
+  }
+}
+
+export interface IEmployee {
+  id: string
+  commission: number
+}
+
+export interface IAssignment {
+  licencePlate: string
+  employee: string | undefined
+  fuelAdded: number
+  price: number
+}
