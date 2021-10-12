@@ -34,9 +34,9 @@ export function canAssignToEmployee(averageWorkloadPerEmployee: number): (arg: n
 }
 
 // In the following scenario, we will assess the employee's workload for each assignment in unit of value.
+// The workload will be calculated based on the car and the nb of litre if a refill is necessary.
 // Then we will calculate the ratio price/workload. This ratio will help us determining which employees should take on which assignment:
 // - e.g.: a assignment with a high workload (which will take time) and a low price should be assigned to an employee with high commission.
-
 export default function assignJobsToEmployees(jobs: IAssignment[], employees: IEmployee[]): IAssignment[] {
   // Calcul workload and ratio price/workload for watch employee and sort by ratio
   const workloadArr = jobs.map(assessJobWorkload).sort((a, b) => b.ratioPriceWorkload - a.ratioPriceWorkload)
