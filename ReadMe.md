@@ -11,10 +11,26 @@ Design a parking service system. The service offers parking in addition to refue
 
 See input and output at the end of the file
 
-# Room for improvements
+## Installation
 
+- `git clone https://github.com/3JTek/parking-system.git`
+- `yarn`
+- `yarn prepare` (install husky for precommit & prepush hook)
+
+## Test
+
+- `yarn test`, runner `mocha`, assertion library `chai`. Tests in `./test` folder
+
+## Run
+
+- `yarn start`
+
+Note: there is config file where the main parameters of the parking system can be changed
+
+## Room for improvements
+
+- Make the application handling dynamic employees input (what happens if suddenly we have 3 or more employees)
 - Write tests for validation modules
-- Make the application handling dynamic employees input (what happens if suddenly we have 3 employees)
 - Fixing eslint warnings
 
   Input for your application:
